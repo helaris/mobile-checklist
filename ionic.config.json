@@ -1,0 +1,7 @@
+{
+  "name": "checklist-app",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react"
+}
