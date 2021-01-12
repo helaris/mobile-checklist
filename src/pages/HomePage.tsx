@@ -1,0 +1,65 @@
+import React from "react";
+import {
+  IonButtons,
+  IonMenuButton,
+  IonToolbar,
+  IonIcon,
+  IonHeader,
+  IonContent,
+  IonFooter,
+  IonGrid,
+  IonRow,
+  IonCol,
+  IonTabButton,
+  IonLabel,
+  IonButton,
+  IonPage,
+} from "@ionic/react";
+
+import {
+  addCircleOutline,
+  documentTextOutline,
+  checkboxOutline,
+} from "ionicons/icons";
+
+import WorkCard from "../components/WorkCard";
+
+const HomePage: React.FC = () => (
+  <IonPage>
+    <IonHeader className="ion-padding-top">
+      <IonToolbar>
+        <IonButtons slot="start">
+          <IonMenuButton autoHide={false}></IonMenuButton>
+        </IonButtons>
+        <IonButtons slot="end">
+          <IonIcon size="large" icon={addCircleOutline} />
+        </IonButtons>
+      </IonToolbar>
+    </IonHeader>
+    <IonContent>
+      <WorkCard />
+    </IonContent>
+    <IonFooter>
+      <IonToolbar>
+        <IonGrid>
+          <IonRow>
+            <IonCol>
+              <IonTabButton>
+                <IonIcon size="large" icon={documentTextOutline} />
+                <IonLabel>TO DO</IonLabel>
+              </IonTabButton>{" "}
+            </IonCol>
+            <IonCol>
+              <IonTabButton>
+                <IonIcon size="large" icon={checkboxOutline} />
+                <IonLabel>COMPLETED</IonLabel>
+              </IonTabButton>
+            </IonCol>
+          </IonRow>
+        </IonGrid>
+      </IonToolbar>
+    </IonFooter>
+  </IonPage>
+);
+
+export default HomePage;
