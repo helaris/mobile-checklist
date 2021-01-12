@@ -32,11 +32,11 @@ const HomePage: React.FC = () => (
           <IonMenuButton autoHide={false}></IonMenuButton>
         </IonButtons>
         <IonButtons slot="end">
-          <IonIcon size="large" icon={addCircleOutline} />
+          <IonIcon color="primary" size="large" icon={addCircleOutline} />
         </IonButtons>
       </IonToolbar>
     </IonHeader>
-    <IonContent>
+    <IonContent scrollY={true}>
       <WorkCard />
     </IonContent>
     <IonFooter>
@@ -45,14 +45,22 @@ const HomePage: React.FC = () => (
           <IonRow>
             <IonCol>
               <IonTabButton>
-                <IonIcon size="large" icon={documentTextOutline} />
-                <IonLabel>TO DO</IonLabel>
+                <IonIcon
+                  color="secondary"
+                  size="large"
+                  icon={documentTextOutline}
+                />
+                <IonLabel color="secondary">TO DO</IonLabel>
               </IonTabButton>{" "}
             </IonCol>
             <IonCol>
               <IonTabButton>
-                <IonIcon size="large" icon={checkboxOutline} />
-                <IonLabel>COMPLETED</IonLabel>
+                <IonIcon
+                  color="secondary"
+                  size="large"
+                  icon={checkboxOutline}
+                />
+                <IonLabel color="secondary">COMPLETED</IonLabel>
               </IonTabButton>
             </IonCol>
           </IonRow>

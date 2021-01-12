@@ -6,6 +6,7 @@ const jobs = [
     orders: 1,
     distance: "15km",
     dueDate: "15 December",
+    checkList: ['Machine Room/Space Requirements', 'Hoistway and Pits', 'Secondary and Overhead Shave Space', 'Miscellaneous', 'Sprinkler, Shunt Trip and Detector'],
   },
   {
     id: 2,
@@ -14,6 +15,7 @@ const jobs = [
     orders: 2,
     distance: "15km",
     dueDate: "18 December",
+
   },
   {
     id: 3,

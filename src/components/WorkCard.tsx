@@ -27,7 +27,8 @@ const WorkCard: React.FC = () => (
                 <h6 className="card-location-name">{job.locationName}</h6>
                 <p className="card-location-address">{job.address}</p>
                 <p className="card-order">
-                  {job.orders} Orders | {job.distance} away
+                  {job.orders} {job.orders === 1 ? "Order" : "Orders"} |{" "}
+                  {job.distance} away
                 </p>
               </div>
             </div>
@@ -40,13 +41,13 @@ const WorkCard: React.FC = () => (
           </div>
         </div>
         <IonButton
-          expand="block"
+          expand="full"
           fill="solid"
           color="primary"
           className="ion-no-margin"
-          routerLink="/checklist"
+          routerLink={`/checklist/${job.id}`}
         >
-          checklist
+          CHECKLIST
         </IonButton>
         <IonFooter>
           <IonToolbar className="toolbar">

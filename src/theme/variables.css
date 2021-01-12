@@ -197,6 +197,8 @@ ion-content {
   --background: #F9F9F9;
 }
 
+/*CARD*/
+
 .card-container {
   border-radius: 10px;
   margin-top: 20px;
@@ -284,4 +286,25 @@ ion-content {
 
 .card-cta-icon {
   color: var(--ion-color-primary);
+}
+
+/*CHECKLIST*/
+
+.checklist-location {
+  font-size: 0.825rem;
+  color: var(--ion-color-secondary);
+}
+
+.checklist-address {
+  font-size: 0.75rem;
+  color: #909090;
+  margin: 0 0 20px 0;
+}
+
+.test {
+  --color: #909090;
+}
+
+ion-checkbox {
+  --border-radius: 50%;
 }
