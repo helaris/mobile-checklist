@@ -318,3 +318,9 @@ ion-content {
   font-size: 1.5rem;
   padding-right: 10px;
 }
+
+.custom-button-content {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+}

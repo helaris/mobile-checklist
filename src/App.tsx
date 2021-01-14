@@ -7,6 +7,7 @@ import CheckList from "./pages/CheckList";
 import HomePage from "./pages/HomePage";
 import TodoTab from "./pages/TodoTab";
 import CompletedTab from "./pages/CompletedTab";
+import ChecklistNotes from "./pages/ChecklistNotes";
 
 /* Core CSS required for Ionic components to work properly */
 import "@ionic/react/css/core.css";
@@ -26,7 +27,6 @@ import "@ionic/react/css/display.css";
 
 /* Theme variables */
 import "./theme/variables.css";
-import HomeTab from "./components/HomeTab";
 
 const App: React.FC = () => (
   <IonApp>
@@ -36,6 +36,7 @@ const App: React.FC = () => (
         <Route path="/checklist/:id" component={CheckList}></Route>
         <Route path="/todo" component={TodoTab}></Route>
         <Route path="/completed" component={CompletedTab}></Route>
+        <Route path="/checklist-notes" component={ChecklistNotes}></Route>
         <Redirect to="/" />
       </IonRouterOutlet>
     </IonReactRouter>

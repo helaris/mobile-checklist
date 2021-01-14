@@ -11,14 +11,17 @@ import {
   IonCheckbox,
   IonLabel,
   IonPage,
+  IonButton,
+  IonIcon,
 } from "@ionic/react";
 import {
   downloadOutline,
   checkmarkOutline,
   chevronBackOutline,
+  addCircleOutline,
 } from "ionicons/icons";
 import { useParams } from "react-router-dom";
-import Footer from "../components/Footer";
+import FooterNav from "../components/FooterNav";
 
 import mockData from "../mockdata";
 
@@ -38,6 +41,11 @@ const CheckList: React.FC = () => {
             />
           </IonButtons>
           <IonTitle style={{ fontSize: "0.825rem" }}>CHECKLIST</IonTitle>
+          <IonButtons slot="end">
+            <IonButton color="primary" routerLink="/checklist-notes">
+              <IonIcon icon={addCircleOutline} />
+            </IonButton>
+          </IonButtons>
         </IonToolbar>
       </IonHeader>
       <IonContent className="ion-padding">
@@ -65,7 +73,7 @@ const CheckList: React.FC = () => {
           ))}
         </IonList>
       </IonContent>
-      <Footer
+      <FooterNav
         lIcon={downloadOutline}
         lLabel="EXPORT"
         rIcon={checkmarkOutline}
