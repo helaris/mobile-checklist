@@ -9,6 +9,8 @@ import {
   IonFooter,
   IonToolbar,
   IonButton,
+  IonCardSubtitle,
+  IonCardTitle,
 } from "@ionic/react";
 import { location, call } from "ionicons/icons";
 
@@ -18,13 +20,17 @@ const WorkCard: React.FC = () => (
   <>
     {mockData.map((job) => (
       <IonCard className="card-container" key={job.id}>
-        <div className="card-content-container">
+        <section className="card-content-container">
           <div>
-            <p className="card-installation">Installation</p>
+            <IonCardSubtitle className="card-installation ion-text-center">
+              Installation
+            </IonCardSubtitle>
             <div className="card-content-left">
               <IonIcon icon={location} />
               <div>
-                <h6 className="card-location-name">{job.locationName}</h6>
+                <IonCardTitle className="card-location-name">
+                  {job.locationName}
+                </IonCardTitle>
                 <p className="card-location-address">{job.address}</p>
                 <p className="card-order">
                   {job.orders} {job.orders === 1 ? "Order" : "Orders"} |{" "}
@@ -39,7 +45,7 @@ const WorkCard: React.FC = () => (
             <p className="card-completion">Checklist Completion</p>
             <p className="card-completion-percentage">60%</p>
           </div>
-        </div>
+        </section>
         <IonButton
           expand="full"
           fill="solid"
@@ -50,18 +56,18 @@ const WorkCard: React.FC = () => (
           CHECKLIST
         </IonButton>
         <IonFooter>
-          <IonToolbar className="toolbar">
-            <IonGrid>
+          <IonToolbar className="card-toolbar-color">
+            <IonGrid className="ion-text-center ion-no-padding">
               <IonRow>
-                <IonCol>
-                  <IonTabButton>
-                    <IonIcon className="card-cta-icon" icon={location} />
-                  </IonTabButton>{" "}
+                <IonCol style={{ borderRight: "1px solid #d9d9d9" }}>
+                  <IonButton fill="clear" expand="block">
+                    <IonIcon icon={location} />
+                  </IonButton>{" "}
                 </IonCol>
                 <IonCol>
-                  <IonTabButton>
-                    <IonIcon className="card-cta-icon" icon={call} />
-                  </IonTabButton>
+                  <IonButton fill="clear" expand="block">
+                    <IonIcon icon={call} />
+                  </IonButton>
                 </IonCol>
               </IonRow>
             </IonGrid>

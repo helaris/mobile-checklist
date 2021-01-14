@@ -1,10 +1,12 @@
 import React from "react";
-import { Route } from "react-router-dom";
+import { Redirect, Route } from "react-router-dom";
 import { IonReactRouter } from "@ionic/react-router";
 import { IonApp, IonRouterOutlet } from "@ionic/react";
 
 import CheckList from "./pages/CheckList";
 import HomePage from "./pages/HomePage";
+import TodoTab from "./pages/TodoTab";
+import CompletedTab from "./pages/CompletedTab";
 
 /* Core CSS required for Ionic components to work properly */
 import "@ionic/react/css/core.css";
@@ -24,6 +26,7 @@ import "@ionic/react/css/display.css";
 
 /* Theme variables */
 import "./theme/variables.css";
+import HomeTab from "./components/HomeTab";
 
 const App: React.FC = () => (
   <IonApp>
@@ -31,6 +34,9 @@ const App: React.FC = () => (
       <IonRouterOutlet>
         <Route path="/" exact component={HomePage}></Route>
         <Route path="/checklist/:id" component={CheckList}></Route>
+        <Route path="/todo" component={TodoTab}></Route>
+        <Route path="/completed" component={CompletedTab}></Route>
+        <Redirect to="/" />
       </IonRouterOutlet>
     </IonReactRouter>
   </IonApp>

@@ -193,11 +193,16 @@ ion-content {
   --background: #EDF2F3;
 }
 
-.toolbar {
+/*CARD*/
+
+.card-toolbar-color {
   --background: #F9F9F9;
 }
 
-/*CARD*/
+.card-content-md p {
+  font-size: 10px;
+  font-weight: unset;
+}
 
 .card-container {
   border-radius: 10px;
@@ -227,7 +232,6 @@ ion-content {
   color: var(--ion-color-light);
   padding: 5px;
   width: 100px;
-  text-align: center;
   border-radius: 5px;
   font-size: 0.75rem;
   font-weight: 600;
@@ -237,7 +241,7 @@ ion-content {
   font-size: 0.75rem;
   font-weight: 600;
   margin: 0;
-  margin-top: 5px;
+  margin-top: 10px;
   color: var(--ion-color-secondary);
 }
 
@@ -284,10 +288,6 @@ ion-content {
   color: var(--ion-color-tertiary);
 }
 
-.card-cta-icon {
-  color: var(--ion-color-primary);
-}
-
 /*CHECKLIST*/
 
 .checklist-location {
@@ -305,6 +305,16 @@ ion-content {
   --color: #909090;
 }
 
-ion-checkbox {
+.test ion-checkbox {
   --border-radius: 50%;
+  --size: 1rem;
+}
+
+.no-bottom-border ion-item:last-child {
+  --border-width: 0 0 0 0 !important;
+}
+
+.ion-icon-size {
+  font-size: 1.5rem;
+  padding-right: 10px;
 }
