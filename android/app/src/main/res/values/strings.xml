@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">checklist-app</string>
+    <string name="title_activity_main">checklist-app</string>
+    <string name="package_name">io.checklist.feature</string>
+    <string name="custom_url_scheme">io.checklist.feature</string>
+</resources>
