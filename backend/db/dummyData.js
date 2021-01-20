@@ -130,9 +130,50 @@ const expectedAnswerDataOne = {
   expectedInput: "YES",
 }
 
+const questionDataTwo = {
+  questionType: "YESNO",
+  description: "Hoistway and pits",
+}
+
+const expectedAnswerDataTwo = {
+  questionType: "YESNO",
+  expectedInput: "YES",
+}
+
+const questionDataThree= {
+  questionType: "YESNO",
+  description: "Secondary and Overhead Sheave Space",
+}
+
+const expectedAnswerDataThree= {
+  questionType: "YESNO",
+  expectedInput: "YES",
+}
+
+const questionDataFour = {
+  questionType: "YESNO",
+  description: "Miscelaneous",
+}
+
+const expectedAnswerDataFour = {
+  questionType: "YESNO",
+  expectedInput: "YES",
+}
+const questionDataFive = {
+  questionType: "YESNO",
+  description: "Sprinkler, shunt trou and detector",
+}
+
+const expectedAnswerDataFive = {
+  questionType: "YESNO",
+  expectedInput: "YES",
+}
+
 const answerQuestionOne = [questionDataOne, expectedAnswerDataOne]
-
-
+const answerQuestionTwo = [questionDataTwo, expectedAnswerDataTwo]
+const answerQuestionThree = [questionDataThree, expectedAnswerDataThree]
+const answerQuestionFour = [questionDataFour, expectedAnswerDataFour]
+const answerQuestionFive = [questionDataFive, expectedAnswerDataFive]
 
 const addQuestionToChecklist = (checklists, questionData, expectedAnswerData) => {
   const question = createQuestion(questionData)
@@ -144,13 +185,16 @@ const addQuestionToChecklist = (checklists, questionData, expectedAnswerData) =>
 }
 
 checklists = addQuestionToChecklist(checklists, answerQuestionOne[0], answerQuestionOne[1])
+checklists = addQuestionToChecklist(checklists, answerQuestionTwo[0], answerQuestionTwo[1])
+checklists = addQuestionToChecklist(checklists, answerQuestionThree[0], answerQuestionThree[1])
+checklists = addQuestionToChecklist(checklists, answerQuestionFour[0], answerQuestionFour[1])
+checklists = addQuestionToChecklist(checklists, answerQuestionFive[0], answerQuestionFive[1])
 
 // Function to count how many answers has been filled out, ee.g
 // how many have input defined is TO BE implemented.
 console.log(checklists[0])
 // All questions will be made with an expected answer
 //
-
 
 module.exports = {contacts};
 
