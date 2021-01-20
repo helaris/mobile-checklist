@@ -6,9 +6,13 @@ let contacts = [];
 let serviceCompanies = [];
 let elevators = [];
 const orders = [];
-const checklists = [];
-const questions = [];
+let checklists = [];
+let questions = [];
 const answers = [];
+
+// Helpers
+
+const addRandomIdToObject = (obj) => ({...obj, id: v4()})
 
 // What you get from the front end ::
 const contact1Data = {
@@ -104,17 +108,46 @@ const createChecklist = () => {
   sequenceMap,
   answerMap,
   expectedAnswerMap,
+  completionCount: 0,
   isSigned: false,
 }
 }
 
+checklists = [...checklists, createChecklist()]
+
 // Question and answer creation functions
 
+const createQuestion = (questionData) => addRandomIdToObject(questionData);
+const createAnswer = (answerData) => addRandomIdToObject(answerData);
 
-
-const addQuestionToChecklist = () => {
-
+const questionDataOne = {
+  questionType: "YESNO",
+  description: "Machine Room Space Requirements",
 }
+
+const expectedAnswerDataOne = {
+  questionType: "YESNO",
+  expectedInput: "YES",
+}
+
+const answerQuestionOne = [questionDataOne, expectedAnswerDataOne]
+
+
+
+const addQuestionToChecklist = (checklists, questionData, expectedAnswerData) => {
+  const question = createQuestion(questionData)
+  const expectedAnswer = createAnswer(expectedAnswerData)
+  checklists[0].sequenceMap[0] = question
+  checklists[0].answerMap[question.id] = createAnswer({questionType: "YESNO", input: undefined})
+  checklists[0].expectedAnswerMap[question.id] = expectedAnswer
+  return checklists
+}
+
+checklists = addQuestionToChecklist(checklists, answerQuestionOne[0], answerQuestionOne[1])
+
+// Function to count how many answers has been filled out, ee.g
+// how many have input defined is TO BE implemented.
+console.log(checklists[0])
 // All questions will be made with an expected answer
 //
 
