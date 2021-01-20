@@ -1,8 +1,7 @@
 const express = require('express');
 const cors = require('cors');
-const { contact, serviceCompany, Order } = require('./db/dummyData')
-console.log(serviceCompany)
-console.log(Order)
+const { Order } = require('./db/dummyData')
+
 
 const app = express();
 

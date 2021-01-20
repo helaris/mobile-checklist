@@ -323,4 +323,22 @@ ion-content {
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
+  min-height: 100%;
+}
+
+.custom-button-content ion-label {
+  font-size: 0.75rem;
+  font-weight: 400;
+  padding-top: 4px;
+}
+
+ion-input {
+  border: 2px dashed var(--ion-color-medium);
+  border-radius: 10px;
+}
+
+.footer-flex {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 25px 25px 25px;
 }

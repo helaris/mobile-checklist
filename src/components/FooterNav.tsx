@@ -1,5 +1,5 @@
 import React from "react";
-import { IonTabButton, IonIcon, IonLabel, IonTabBar } from "@ionic/react";
+import { IonIcon, IonLabel, IonFooter, IonButton } from "@ionic/react";
 
 interface FooterProps {
   lIcon: string;
@@ -9,33 +9,20 @@ interface FooterProps {
 }
 
 const FooterNav = (props: FooterProps) => (
-  <IonTabBar className="ion-justify-content-between ion-padding-vertical">
-    <IonTabButton>
-      <IonIcon color="secondary" size="large" icon={props.lIcon} />
-      <IonLabel color="secondary">{props.lLabel}</IonLabel>
-    </IonTabButton>{" "}
-    <IonTabButton>
-      <IonIcon color="secondary" size="large" icon={props.rIcon} />
-      <IonLabel color="secondary">{props.rLabel}</IonLabel>
-    </IonTabButton>
-  </IonTabBar>
+  <IonFooter className="footer-flex">
+    <IonButton fill="clear" expand="block" className="custom-button-content">
+      <div className="custom-button-content">
+        <IonIcon color="secondary" size="large" icon={props.lIcon} />
+        <IonLabel color="secondary">{props.lLabel}</IonLabel>
+      </div>
+    </IonButton>
+    <IonButton fill="clear" expand="block" className="custom-button-content">
+      <div className="custom-button-content">
+        <IonIcon color="secondary" size="large" icon={props.rIcon} />
+        <IonLabel color="secondary">{props.rLabel}</IonLabel>
+      </div>
+    </IonButton>
+  </IonFooter>
 );
 
 export default FooterNav;
-
-{
-  /* <IonButtons className="ion-justify-content-between">
-        <IonButton className="lol">
-          <div className="custom-button-content">
-            <IonIcon color="secondary" size="large" icon={props.lIcon} />
-            <IonLabel color="secondary">{props.lLabel}</IonLabel>
-          </div>
-        </IonButton>
-        <IonButton size="large">
-          <div className="custom-button-content">
-            <IonIcon color="secondary" size="large" icon={props.rIcon} />
-            <IonLabel color="secondary">{props.rLabel}</IonLabel>
-          </div>
-        </IonButton>
-      </IonButtons> */
-}

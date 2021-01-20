@@ -27,6 +27,7 @@ import "@ionic/react/css/display.css";
 
 /* Theme variables */
 import "./theme/variables.css";
+import QuestionPage from "./pages/QuestionPage";
 
 const App: React.FC = () => (
   <IonApp>
@@ -37,6 +38,7 @@ const App: React.FC = () => (
         <Route path="/todo" component={TodoTab}></Route>
         <Route path="/completed" component={CompletedTab}></Route>
         <Route path="/checklist-notes" component={ChecklistNotes}></Route>
+        <Route path="/question-page" component={QuestionPage}></Route>
         <Redirect to="/" />
       </IonRouterOutlet>
     </IonReactRouter>
