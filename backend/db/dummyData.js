@@ -36,9 +36,12 @@ const contact1info = {
 
 const createContact = (contactObject) => ({ ...contactObject, id: v4() });
 
-const georg = { name: "Georg", age: 30 };
-
-console.log({ ...contact1info, sex: "Shemale" });
+// create serviceCompany
+// create eleveator
+// create orders
+// create checklists
+// create questions
+// create answers
 
 const contact1 = createContact(contact1info);
 console.log(contact1);
