@@ -42,7 +42,7 @@ const CheckList: React.FC = () => {
           </IonButtons>
           <IonTitle style={{ fontSize: "0.825rem" }}>CHECKLIST</IonTitle>
           <IonButtons slot="end">
-            <IonButton color="primary" routerLink="/checklist-notes">
+            <IonButton color="primary" routerLink={`/checklist-notes/${id}`}>
               <IonIcon size="large" icon={documentTextOutline} />
             </IonButton>
           </IonButtons>

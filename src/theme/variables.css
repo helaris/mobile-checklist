@@ -193,6 +193,10 @@ ion-content {
   --background: #EDF2F3;
 }
 
+.danger-color {
+  --background: rgba(253, 2, 2, 0.15);
+}
+
 /*CARD*/
 
 .card-toolbar-color {

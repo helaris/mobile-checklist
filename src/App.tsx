@@ -37,7 +37,7 @@ const App: React.FC = () => (
         <Route path="/checklist/:id" component={CheckList}></Route>
         <Route path="/todo" component={TodoTab}></Route>
         <Route path="/completed" component={CompletedTab}></Route>
-        <Route path="/checklist-notes" component={ChecklistNotes}></Route>
+        <Route path="/checklist-notes/:id" component={ChecklistNotes}></Route>
         <Route path="/question-page" component={QuestionPage}></Route>
         <Redirect to="/" />
       </IonRouterOutlet>

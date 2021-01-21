@@ -52,7 +52,7 @@ const AddNoteModal: React.FC<{ show: boolean; onClose: () => void }> = (
           <IonRow className="ion-text-end">
             <IonCol>
               <IonButton>Save</IonButton>
-              <IonButton>Cancel</IonButton>
+              <IonButton onClick={props.onClose}>Cancel</IonButton>
             </IonCol>
           </IonRow>
         </IonGrid>
