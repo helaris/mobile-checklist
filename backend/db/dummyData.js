@@ -13,7 +13,7 @@ let answers = [];
 
 // Helpers
 
-const addRandomIdToObject = (obj) => ({...obj, id: v4()})
+const addRandomIdToObject = (obj) => ({ ...obj, id: v4() })
 
 // What you get from the front end ::
 const contact1Data = {
@@ -67,12 +67,12 @@ contacts = addNewContact(contacts, contact1Data)
 contacts = addNewContact(contacts, contact2Data)
 contacts = addNewContact(contacts, contact3Data)
 
-const createServiceCompany = (companyData, contactId) => ({...companyData, id: v4(), contact: findContact(contactId)})
+const createServiceCompany = (companyData, contactId) => ({ ...companyData, id: v4(), contact: findContact(contactId) })
 const addNewServiceCompany = (serviceCompanies, newCompany, contactId) => [...serviceCompanies, createServiceCompany(newCompany, contactId)]
 
 serviceCompanies = addNewServiceCompany(serviceCompanies, serviceCompany1Data, contacts[0].id)
-serviceCompanies = addNewServiceCompany(serviceCompanies, serviceCompany2Data,  contacts[1].id)
-serviceCompanies = addNewServiceCompany(serviceCompanies, serviceCompany3Data,  contacts[2].id)
+serviceCompanies = addNewServiceCompany(serviceCompanies, serviceCompany2Data, contacts[1].id)
+serviceCompanies = addNewServiceCompany(serviceCompanies, serviceCompany3Data, contacts[2].id)
 
 const elevatorOneData = {
   model: "AT30C",
@@ -90,11 +90,11 @@ const elevatorThreeData = {
   capacity: "2000kg",
 }
 
-const createElevator = (elevatorData, contactId) => ({...elevatorData, id: v4(), contact: findContact(contactId)})
+const createElevator = (elevatorData, contactId) => ({ ...elevatorData, id: v4(), contact: findContact(contactId) })
 
 elevators = [...elevators, createElevator(elevatorOneData, contacts[0].id)]
-elevators = [...elevators,createElevator(elevatorTwoData, contacts[1].id)]
-elevators = [...elevators,createElevator(elevatorThreeData, contacts[2].id)]
+elevators = [...elevators, createElevator(elevatorTwoData, contacts[1].id)]
+elevators = [...elevators, createElevator(elevatorThreeData, contacts[2].id)]
 
 // Questio
 
@@ -105,13 +105,13 @@ const createChecklist = () => {
   let expectedAnswerMap = new Map()
 
   return {
-  id: v4(),
-  sequenceMap,
-  answerMap,
-  expectedAnswerMap,
-  completionCount: 0,
-  isSigned: false,
-}
+    id: v4(),
+    sequenceMap,
+    answerMap,
+    expectedAnswerMap,
+    completionCount: 0,
+    isSigned: false,
+  }
 }
 
 checklists = [...checklists, createChecklist()]
@@ -141,12 +141,12 @@ const expectedAnswerDataTwo = {
   expectedInput: "YES",
 }
 
-const questionDataThree= {
+const questionDataThree = {
   questionType: "YESNO",
   description: "Secondary and Overhead Sheave Space",
 }
 
-const expectedAnswerDataThree= {
+const expectedAnswerDataThree = {
   questionType: "YESNO",
   expectedInput: "YES",
 }
@@ -182,7 +182,7 @@ const addQuestionToChecklist = (checklists, questionData, expectedAnswerData) =>
   questions.push(question)
   answers.push(expectedAnswer)
   checklists[0].sequenceMap[count++] = question.id
-  checklists[0].answerMap[question.id] = createAnswer({questionType: "YESNO", input: undefined}).id
+  checklists[0].answerMap[question.id] = createAnswer({ questionType: "YESNO", input: undefined }).id
   checklists[0].expectedAnswerMap[question.id] = expectedAnswer.id
   return checklists
 }
@@ -203,11 +203,12 @@ const orderDataOne = {
   checklistId: checklists[0].id
 }
 
-createOrder = (orderData) => ({...orderData, id: v4(),
+createOrder = (orderData) => ({
+  ...orderData, id: v4(),
   status: 'PENDING',
   actualStartTime: Date.now(),
   actualEndTime: "",
-  })
+})
 
 
 // Function to count how many answers has been filled out, ee.g
@@ -216,7 +217,7 @@ console.log(checklists[0])
 // All questions will be made with an expected answer
 //
 
-module.exports = {contacts, checklists, answers, questions, elevators, serviceCompanies};
+module.exports = { contacts, checklists, answers, questions, elevators, serviceCompanies };
 
 // create checklists
 // create questions
