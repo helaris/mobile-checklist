@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   IonButtons,
   IonToolbar,
@@ -7,35 +7,54 @@ import {
   IonPage,
   IonTitle,
   IonBackButton,
+  IonButton,
+  IonIcon,
 } from "@ionic/react";
 
-import { chevronBackOutline, saveOutline, trashOutline } from "ionicons/icons";
+import {
+  addCircleOutline,
+  chevronBackOutline,
+  saveOutline,
+  trashOutline,
+} from "ionicons/icons";
+
+import AddNoteModal from "../components/AddNoteModal";
 import FooterNav from "../components/FooterNav";
 
-const ChecklistNotes: React.FC = () => (
-  <IonPage>
-    <IonHeader>
-      <IonToolbar>
-        <IonButtons slot="start">
-          <IonBackButton
-            defaultHref="/"
-            icon={chevronBackOutline}
-            color="primary"
-          />
-        </IonButtons>
-        <IonTitle style={{ fontSize: "0.825rem" }}>NOTES</IonTitle>
-      </IonToolbar>
-    </IonHeader>
-    <IonContent scrollY={true}>
-      <h2>Checklist notes</h2>
-    </IonContent>
-    <FooterNav
-      lIcon={saveOutline}
-      lLabel="SAVE"
-      rIcon={trashOutline}
-      rLabel="DELETE"
-    />
-  </IonPage>
-);
+const ChecklistNotes: React.FC = () => {
+  const [addNote, setAddNote] = useState(false);
+
+  return (
+    <IonPage>
+      <AddNoteModal show={addNote} onClose={() => setAddNote(false)} />
+      <IonHeader>
+        <IonToolbar>
+          <IonButtons slot="start">
+            <IonBackButton
+              defaultHref="/"
+              icon={chevronBackOutline}
+              color="primary"
+            />
+          </IonButtons>
+          <IonTitle style={{ fontSize: "0.825rem" }}>NOTES</IonTitle>
+          <IonButtons slot="end">
+            <IonButton color="primary" onClick={() => setAddNote(true)}>
+              <IonIcon size="large" icon={addCircleOutline} />
+            </IonButton>
+          </IonButtons>
+        </IonToolbar>
+      </IonHeader>
+      <IonContent scrollY={true}>
+        <h2>Checklist notes</h2>
+      </IonContent>
+      <FooterNav
+        lIcon={saveOutline}
+        lLabel="SAVE"
+        rIcon={trashOutline}
+        rLabel="DELETE"
+      />
+    </IonPage>
+  );
+};
 
 export default ChecklistNotes;

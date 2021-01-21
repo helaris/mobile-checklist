@@ -332,13 +332,16 @@ ion-content {
   padding-top: 4px;
 }
 
-ion-input {
-  border: 2px dashed var(--ion-color-medium);
-  border-radius: 10px;
-}
-
 .footer-flex {
   display: flex;
   justify-content: space-between;
   padding: 15px 25px 25px 25px;
+}
+
+.p-20 {
+  margin: 10px 0;
+}
+
+.br-10 {
+  border-radius: 10px;
 }

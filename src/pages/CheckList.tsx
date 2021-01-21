@@ -18,7 +18,7 @@ import {
   downloadOutline,
   checkmarkOutline,
   chevronBackOutline,
-  addCircleOutline,
+  documentTextOutline,
 } from "ionicons/icons";
 import { useParams } from "react-router-dom";
 import FooterNav from "../components/FooterNav";
@@ -43,7 +43,7 @@ const CheckList: React.FC = () => {
           <IonTitle style={{ fontSize: "0.825rem" }}>CHECKLIST</IonTitle>
           <IonButtons slot="end">
             <IonButton color="primary" routerLink="/checklist-notes">
-              <IonIcon icon={addCircleOutline} />
+              <IonIcon size="large" icon={documentTextOutline} />
             </IonButton>
           </IonButtons>
         </IonToolbar>

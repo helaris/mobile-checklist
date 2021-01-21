@@ -1,5 +1,5 @@
 {
-  "appId": "io.checklist.feature",
+  "appId": "io.ionic.starter",
   "appName": "checklist-app",
   "bundledWebRuntime": false,
   "npmClient": "npm",
