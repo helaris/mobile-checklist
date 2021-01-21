@@ -2,13 +2,14 @@ const { v4 } = require("uuid");
 
 // Stateful DataBase
 
+let count = 0
 let contacts = [];
 let serviceCompanies = [];
 let elevators = [];
-const orders = [];
+let orders = [];
 let checklists = [];
 let questions = [];
-const answers = [];
+let answers = [];
 
 // Helpers
 
@@ -178,9 +179,11 @@ const answerQuestionFive = [questionDataFive, expectedAnswerDataFive]
 const addQuestionToChecklist = (checklists, questionData, expectedAnswerData) => {
   const question = createQuestion(questionData)
   const expectedAnswer = createAnswer(expectedAnswerData)
-  checklists[0].sequenceMap[0] = question
-  checklists[0].answerMap[question.id] = createAnswer({questionType: "YESNO", input: undefined})
-  checklists[0].expectedAnswerMap[question.id] = expectedAnswer
+  questions.push(question)
+  answers.push(expectedAnswer)
+  checklists[0].sequenceMap[count++] = question.id
+  checklists[0].answerMap[question.id] = createAnswer({questionType: "YESNO", input: undefined}).id
+  checklists[0].expectedAnswerMap[question.id] = expectedAnswer.id
   return checklists
 }
 
@@ -190,18 +193,30 @@ checklists = addQuestionToChecklist(checklists, answerQuestionThree[0], answerQu
 checklists = addQuestionToChecklist(checklists, answerQuestionFour[0], answerQuestionFour[1])
 checklists = addQuestionToChecklist(checklists, answerQuestionFive[0], answerQuestionFive[1])
 
+const orderDataOne = {
+  externalId: "",
+  serviceCompanyId: serviceCompanies[0].id,
+  elevatorId: elevators[0].id,
+  contractId: "123",
+  description: "Contract for maintenance",
+  dueDate: "12-04-21",
+  checklistId: checklists[0].id
+}
+
+createOrder = (orderData) => ({...orderData, id: v4(),
+  status: 'PENDING',
+  actualStartTime: Date.now(),
+  actualEndTime: "",
+  })
+
+
 // Function to count how many answers has been filled out, ee.g
 // how many have input defined is TO BE implemented.
 console.log(checklists[0])
 // All questions will be made with an expected answer
 //
 
-module.exports = {contacts};
-
-
-
-
-
+module.exports = {contacts, checklists, answers, questions};
 
 // create checklists
 // create questions
