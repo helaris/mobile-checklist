@@ -216,7 +216,7 @@ console.log(checklists[0])
 // All questions will be made with an expected answer
 //
 
-module.exports = {contacts, checklists, answers, questions};
+module.exports = {contacts, checklists, answers, questions, elevators, serviceCompanies};
 
 // create checklists
 // create questions

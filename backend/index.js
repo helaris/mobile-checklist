@@ -1,5 +1,8 @@
 const express = require('express');
 const cors = require('cors');
+const { contacts, checklists, answers, questions, elevators, serviceCompanies } = require('./db/dummyData')
+
+
 const app = express();
 app.use(cors());
 
@@ -9,11 +12,15 @@ app.get('/', (req, res) => {
 
 
 app.get('/checklists', (req, res) => {
-  res.send(checklists[0])
+  res.send(checklists)
 })
 app.get('/answers', (req, res) => {
   res.send(answers)
 })
+app.get('/all-data', (req, res) => {
+  res.send([checklists, answers, questions, elevators, serviceCompanies])
+})
+
 app.get('/questions', (req, res) => {
   res.send(questions)
 })
