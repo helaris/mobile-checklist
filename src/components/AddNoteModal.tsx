@@ -14,7 +14,6 @@ import {
   IonLabel,
   IonInput,
   IonTextarea,
-  IonItemDivider,
 } from "@ionic/react";
 
 const AddNoteModal: React.FC<{ show: boolean; onClose: () => void }> = (

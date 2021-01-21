@@ -213,7 +213,6 @@ createOrder = (orderData) => ({
 
 // Function to count how many answers has been filled out, ee.g
 // how many have input defined is TO BE implemented.
-console.log(checklists[0])
 // All questions will be made with an expected answer
 //
 
