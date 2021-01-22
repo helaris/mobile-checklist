@@ -2,7 +2,7 @@
 
 The Mainteny Technician's Checklist App
 
-_This project was part of a two week program with Mainteny. Our group consisted of Joakim Andersson, Carlos Chavez, Georg Ekeberg and Helari Sosi. _
+*This project was part of a two week program with Mainteny. Our group consisted of Joakim Andersson, Carlos Chavez, Georg Ekeberg and Helari Sosi.*
 
 # Installation and setup
 
@@ -32,11 +32,8 @@ The frontend will now be accessible at http://localhost:8100/ and the backend wi
 
 ## Visuals
 
-![Image of Order View]
-(https://imgur.com/Mq8jnyA)
+![Image of Order View](https://imgur.com/Mq8jnyA)
 
-![Image of Checklist View]
-(https://imgur.com/sjsSKbd)
+![Image of Checklist View](https://imgur.com/sjsSKbd)
 
-![Image of Notes view]
-(https://imgur.com/sjsSKbd)
+![Image of Notes view](https://imgur.com/sjsSKbd)
