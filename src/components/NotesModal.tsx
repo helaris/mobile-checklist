@@ -16,14 +16,18 @@ import {
   IonTextarea,
 } from "@ionic/react";
 
-const AddNoteModal: React.FC<{ show: boolean; onClose: () => void }> = (
-  props
-) => {
+const AddNoteModal: React.FC<{
+  show: boolean;
+  onClose: () => void;
+  editedNote: { id: string; title: string; description: string } | null;
+}> = (props) => {
   return (
     <IonModal isOpen={props.show}>
       <IonHeader>
         <IonToolbar>
-          <IonTitle style={{ fontSize: "0.825rem" }}>ADD A NOTE</IonTitle>
+          <IonTitle style={{ fontSize: "0.825rem" }}>
+            {props.editedNote ? "EDIT" : "ADD"} NOTE
+          </IonTitle>
           <IonButtons slot="end">
             <IonButton
               style={{ fontSize: "0.76rem" }}
@@ -41,11 +45,15 @@ const AddNoteModal: React.FC<{ show: boolean; onClose: () => void }> = (
             <IonCol>
               <IonItem className="p-20 br-10">
                 <IonLabel position="floating">Note Title</IonLabel>
-                <IonInput type="text" />
+                <IonInput type="text" value={props.editedNote?.title} />
               </IonItem>
               <IonItem className="p-20 br-10">
                 <IonLabel position="floating">Note description</IonLabel>
-                <IonTextarea rows={15} cols={20} />
+                <IonTextarea
+                  rows={15}
+                  cols={20}
+                  value={props.editedNote?.description}
+                />
               </IonItem>
             </IonCol>
           </IonRow>

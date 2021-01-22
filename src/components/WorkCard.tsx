@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import {
   IonCard,
   IonGrid,
@@ -13,39 +13,40 @@ import {
 } from "@ionic/react";
 import { location, call } from "ionicons/icons";
 
-// import backend from "../api";
-import mockData from "../mockdata";
+import backend from "../api";
+// import mockData from "../mockdata";
 
 //GETTING DATA THROUGH API WITH TS
-// interface contactCard {
-//   id: string;
-//   city: string;
-//   country: string;
-//   countryCode: string;
-//   email: string;
-//   phone: string;
-//   postalCode: string;
-//   state: string;
-//   street: string;
-// }
+interface contactCard {
+  id: string;
+  City: string;
+  country: string;
+  countryCode: string;
+  email: string;
+  phone: string;
+  postalCode: string;
+  state: string;
+  street: string;
+  address: string;
+}
 
 const WorkCard: React.FC = () => {
   //GETTING DATA THROUGH API
-  // const [data, setData] = useState<contactCard[]>([]);
+  const [data, setData] = useState<contactCard[]>([]);
 
-  // useEffect(() => {
-  //   async function fetchData() {
-  //     const request = await backend.get<contactCard[]>("/");
-  //     setData(request.data);
-  //     return request;
-  //   }
-  //   fetchData();
-  // }, []);
+  useEffect(() => {
+    async function fetchData() {
+      const request = await backend.get<contactCard[]>("/");
+      setData(request.data);
+      return request;
+    }
+    fetchData();
+  }, []);
 
   return (
     <>
-      {mockData.map((job) => (
-        <IonCard className="card-container" key={job.id}>
+      {data.map((info) => (
+        <IonCard className="card-container" key={info.id}>
           <section className="card-content-container">
             <div>
               <IonCardSubtitle className="card-installation ion-text-center">
@@ -55,19 +56,22 @@ const WorkCard: React.FC = () => {
                 <IonIcon icon={location} />
                 <div>
                   <IonCardTitle className="card-location-name">
-                    {job.locationName}
+                    {info.City} - {info.country}
                   </IonCardTitle>
-                  <p className="card-location-address">{job.address}</p>
+                  <p className="card-location-address">
+                    {info.address}, {info.postalCode} {info.City}
+                  </p>
                   <p className="card-order">
-                    {job.orders} {job.orders === 1 ? "Order" : "Orders"} |{" "}
-                    {job.distance} away
+                    1 Order | 15km away
+                    {/* {job.orders} {job.orders === 1 ? "Order" : "Orders"} |{" "}
+                    {job.distance} away */}
                   </p>
                 </div>
               </div>
             </div>
             <div className="card-content-right">
               <p className="card-due">Due</p>
-              <p className="card-due-date">{job.dueDate}</p>
+              <p className="card-due-date">18 December</p>
               <p className="card-completion">Checklist Completion</p>
               <p className="card-completion-percentage">60%</p>
             </div>
@@ -77,7 +81,7 @@ const WorkCard: React.FC = () => {
             fill="solid"
             color="primary"
             className="ion-no-margin"
-            routerLink={`/checklist/${job.id}`}
+            routerLink={`/checklist/${info.id}`}
           >
             CHECKLIST
           </IonButton>

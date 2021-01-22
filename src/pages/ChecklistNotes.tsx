@@ -29,7 +29,7 @@ import {
 import { useParams } from "react-router-dom";
 import mockData from "../mockdata";
 
-import AddNoteModal from "../components/AddNoteModal";
+import AddNoteModal from "../components/NotesModal";
 import FooterNav from "../components/FooterNav";
 
 const notes = [
@@ -54,14 +54,35 @@ const notes = [
 ];
 
 const ChecklistNotes: React.FC = () => {
-  const [addNote, setAddNote] = useState(false);
+  const [noteModal, setNoteModal] = useState(false);
+  const [selectedNote, setSelectedNote] = useState<any>();
   const { id } = useParams<{ id: string }>();
   const data = mockData.find((job) => +job.id === +id);
-  console.log(data);
 
+  const noteModalHandler = (noteId: string, event: React.MouseEvent) => {
+    event.stopPropagation();
+    const note = notes.find((n: any) => n.id === noteId);
+    if (!note) return;
+    setNoteModal(true);
+    setSelectedNote(note);
+  };
+
+  const startAddNoteHandler = () => {
+    setNoteModal(true);
+    setSelectedNote(null);
+  };
+
+  const cancelNoteModalHandler = () => {
+    setNoteModal(false);
+    setSelectedNote(null);
+  };
   return (
     <IonPage>
-      <AddNoteModal show={addNote} onClose={() => setAddNote(false)} />
+      <AddNoteModal
+        show={noteModal}
+        onClose={cancelNoteModalHandler}
+        editedNote={selectedNote}
+      />
       <IonHeader>
         <IonToolbar>
           <IonButtons slot="start">
@@ -73,7 +94,7 @@ const ChecklistNotes: React.FC = () => {
           </IonButtons>
           <IonTitle style={{ fontSize: "0.825rem" }}>NOTES</IonTitle>
           <IonButtons slot="end">
-            <IonButton color="primary" onClick={() => setAddNote(true)}>
+            <IonButton color="primary" onClick={startAddNoteHandler}>
               <IonIcon size="large" icon={addCircleOutline} />
             </IonButton>
           </IonButtons>
@@ -92,7 +113,10 @@ const ChecklistNotes: React.FC = () => {
                 </IonItemOption>
               </IonItemOptions>
               <IonItemOptions>
-                <IonItemOption color="medium">
+                <IonItemOption
+                  color="medium"
+                  onClick={noteModalHandler.bind(null, note.id)}
+                >
                   <IonIcon slot="icon-only" icon={create} />
                 </IonItemOption>
               </IonItemOptions>
@@ -112,5 +136,4 @@ const ChecklistNotes: React.FC = () => {
     </IonPage>
   );
 };
-
 export default ChecklistNotes;

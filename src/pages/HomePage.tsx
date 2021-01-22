@@ -10,7 +10,6 @@ import {
 
 import WorkCard from "../components/WorkCard";
 import HomeTab from "../components/HomeTab";
-// import Footer from "../components/Footer";
 
 const HomePage: React.FC = () => (
   <IonPage>
