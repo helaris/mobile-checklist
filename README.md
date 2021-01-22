@@ -32,8 +32,8 @@ The frontend will now be accessible at http://localhost:8100/ and the backend wi
 
 ## Visuals
 
-![Image of Order View](https://imgur.com/Mq8jnyA)
+![Image of Order View](src/images/OrderPage.png)
 
-![Image of Checklist View](https://imgur.com/sjsSKbd)
+![Image of Checklist View](src/images/Checklist.png)
 
-![Image of Notes view](https://imgur.com/sjsSKbd)
+![Image of Notes view](src/images/Notes.png)
