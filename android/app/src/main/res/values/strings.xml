@@ -2,6 +2,6 @@
 <resources>
     <string name="app_name">checklist-app</string>
     <string name="title_activity_main">checklist-app</string>
-    <string name="package_name">io.checklist.feature</string>
-    <string name="custom_url_scheme">io.checklist.feature</string>
+    <string name="package_name">io.ionic.starter</string>
+    <string name="custom_url_scheme">io.ionic.starter</string>
 </resources>

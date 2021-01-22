@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import {
   IonHeader,
   IonToolbar,
@@ -23,37 +23,12 @@ import {
 import { useParams } from "react-router-dom";
 import FooterNav from "../components/FooterNav";
 
-import backend from "../api";
 import mockData from "../mockdata";
-
-interface IInfo {
-  id: string;
-  City: string;
-  country: string;
-  countryCode: string;
-  email: string;
-  phone: string;
-  postalCode: string;
-  state: string;
-  street: string;
-  address: string;
-}
 
 const CheckList: React.FC = () => {
   const { id } = useParams<{ id: string }>();
-  const [data, setData] = useState<IInfo[]>();
-  const [mockData, setMockData] = useState([]);
 
-  useEffect(() => {
-    async function fetchData() {
-      const request = await backend.get<IInfo[]>("/");
-      setData(request.data);
-      return request;
-    }
-    fetchData();
-  }, []);
-
-  const info = data?.find((p) => p.id === id);
+  const data = mockData.find((job) => +job.id === +id);
 
   return (
     <IonPage>
@@ -75,18 +50,14 @@ const CheckList: React.FC = () => {
         </IonToolbar>
       </IonHeader>
       <IonContent className="ion-padding">
-        <h2 className="checklist-location">
-          {info?.City} - {info?.country}
-        </h2>
-        <p className="checklist-address">
-          {info?.address}, {info?.postalCode} {info?.City}
-        </p>
+        <h2 className="checklist-location">{data?.locationName}</h2>
+        <p className="checklist-address">{data?.address} </p>
         <IonList
           lines="full"
           className="ion-padding no-bottom-border"
           style={{ borderRadius: "10px" }}
         >
-          {/* {data?.checkList?.map((item, i) => (
+          {data?.checkList?.map((item, i) => (
             <IonItem className="test" key={item.id}>
               <IonLabel
                 className="ion-text-wrap"
@@ -100,7 +71,7 @@ const CheckList: React.FC = () => {
               </IonLabel>
               <IonCheckbox slot="end" />
             </IonItem>
-          ))} */}
+          ))}
         </IonList>
       </IonContent>
       <FooterNav

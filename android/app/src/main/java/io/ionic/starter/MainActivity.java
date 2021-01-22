@@ -1,4 +1,4 @@
-package io.checklist.feature;
+package io.ionic.starter;
 
 import android.os.Bundle;
 
